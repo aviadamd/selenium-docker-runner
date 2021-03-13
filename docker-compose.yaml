@@ -2,9 +2,11 @@ version: "3"
 services:
   hub:
     image: selenium/hub:3.141.59
+       ports:
+      - "4444:4444"
   chrome:
-    image: selenium/node-chrome:3.141.59 
-    # if run localy
+    image: selenium/node-chrome:3.141.59    
+    shm_size: '1gb'   
     depends_on:
       - hub
     environment:
@@ -12,7 +14,6 @@ services:
   firefox:
     image: selenium/node-firefox:3.141.59
     shm_size: '1gb'   
-   # if run localy
     depends_on:
       - hub
     environment:
@@ -27,7 +28,7 @@ services:
       - BROWSER=firefox
       - MODULE=search-module.xml
     volumes:
-      - ./search-result:/usr/share/automation/test-output     
+      - ./search-result:/usr/share/automation/output      
   book-flight-module:
     image: 5311072/selenium-docker
     depends_on:
@@ -38,4 +39,4 @@ services:
       - BROWSER=chrome
       - MODULE=book-flight-module.xml
     volumes:
-      - ./book-result:/usr/share/automation/test-output
+      - ./book-result:/usr/share/automation/output   
