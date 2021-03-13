@@ -1,15 +1,27 @@
 pipeline {
 	agent any
 	stages {
-		stage("Compose Up Grid") {
+		stage("Pull Latest Image") {
 			steps {
-				bat "docker-compose up"
+				bat "docker pull 5311072/selenium-docker"
 			}
 		}
-		stage("Compose Down Grid") {
+		stage("Start Grid") {
 			steps {
-				bat "docker-compose down"
+				bat "docker-compose up -d hub chrome firefox"
 			}
+		}
+		stage("Run Test") {
+			steps {
+				bat "docker-compose up search-module book-flight-module"
+			}
+		}
+	}
+	post {
+		always {
+			archiveArtifacts artifacts: 'output/**'
+			bat "docker-compose down"
+			bat "rm -rf output/"
 		}
 	}
 }

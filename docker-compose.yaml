@@ -4,17 +4,19 @@ services:
     image: selenium/hub:3.14
   chrome:
     image: selenium/node-chrome:3.14      
-    depends_on:
-      - hub
-    environment:
-      - HUB_HOST=hub
+    # if run localy
+    #depends_on:
+    #  - hub
+    #environment:
+    #  - HUB_HOST=hub
   firefox:
     image: selenium/node-firefox:3.14
     shm_size: '1gb'   
-    depends_on:
-      - hub
-    environment:
-      - HUB_HOST=hub
+   # if run localy
+    #depends_on:
+    #  - hub
+    #environment:
+    #  - HUB_HOST=hub
   search-module:
     image: 5311072/selenium-docker
     depends_on:
