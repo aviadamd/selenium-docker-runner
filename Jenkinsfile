@@ -41,9 +41,9 @@ pipeline {
 	}
 	post {
 	   always {
-		archiveArtifacts artifacts: 'test-output/***'
+		archiveArtifacts artifacts: 'output/***'
 		bat "docker-compose down"
-		bat "rm -rf test-output/"
+		bat "rm -rf output/"
 	   }
        }
 }
