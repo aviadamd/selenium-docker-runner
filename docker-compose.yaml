@@ -4,8 +4,8 @@ services:
     image: selenium/hub:3.14
   chrome:
     image: selenium/node-chrome:3.14 
-    #ports:
-     # - "4444:4444"    
+    ports:
+      - "4444:4444"    
     # if run localy
     depends_on:
       - hub
