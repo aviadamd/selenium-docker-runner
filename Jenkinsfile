@@ -7,9 +7,11 @@ pipeline {
 			}
 		}
 		stage("Wait For Tests") {
-			timeout(time: 3, unit: 'SECONDS') {
+			steps { 
+			  timeout(time: 3, unit: 'SECONDS') {
                 retry(2) {
                    echo "wait for test"
+                }   
               }
            }
 		}
