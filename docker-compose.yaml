@@ -13,7 +13,6 @@ services:
       - HUB_HOST=hub
   firefox:
     image: selenium/node-firefox:3.141.59
-    shm_size: '1gb'   
     depends_on:
       - hub
     environment:
