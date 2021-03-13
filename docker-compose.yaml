@@ -40,4 +40,4 @@ services:
       - BROWSER=chrome
       - MODULE=book-flight-module.xml
     volumes:
-      - ./book-result:/usr/share/automation/test-output   
+      - ./book-result:/usr/share/automation/test-output
