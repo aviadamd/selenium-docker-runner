@@ -29,7 +29,7 @@ services:
       - BROWSER=firefox
       - MODULE=search-module.xml
     volumes:
-      - ./output/search-result:/usr/share/automation/output     
+      - ./search-result:/usr/share/automation/test-output     
   book-flight-module:
     image: 5311072/selenium-docker
     depends_on:
@@ -40,4 +40,4 @@ services:
       - BROWSER=chrome
       - MODULE=book-flight-module.xml
     volumes:
-      - ./output/book-result:/usr/share/automation/output   
+      - ./book-result:/usr/share/automation/test-output   
