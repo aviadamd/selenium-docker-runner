@@ -16,18 +16,7 @@ services:
     depends_on:
       - hub
     environment:
-      - HUB_HOST=hub
-  search-module:
-    image: 5311072/selenium-docker
-    depends_on:
-      - chrome
-      - firefox
-    environment:
-      - HUB_HOST=hub
-      - BROWSER=firefox
-      - MODULE=search-module.xml
-    volumes:
-      - ./search-result:/usr/share/automation/output      
+      - HUB_HOST=hub   
   book-flight-module:
     image: 5311072/selenium-docker
     depends_on:
