@@ -4,8 +4,8 @@ services:
     image: selenium/hub:3.14
   chrome:
     image: selenium/node-chrome:3.14 
-    ports:
-      - "4444:4444"    
+    #ports:
+     # - "4444:4444"    
     # if run localy
     depends_on:
       - hub
@@ -30,7 +30,7 @@ services:
       - BROWSER=firefox
       - MODULE=search-module.xml
     volumes:
-      - ./output/search-result:/usr/share/automation/output      
+      - ./output/search-result:/usr/share/automation     
   book-flight-module:
     image: 5311072/selenium-docker
     container_name: book-flight-module
@@ -42,4 +42,4 @@ services:
       - BROWSER=chrome
       - MODULE=book-flight-module.xml
     volumes:
-      - ./output/book-result:/usr/share/automation/output   
+      - ./output/book-result:/usr/share/automation   
