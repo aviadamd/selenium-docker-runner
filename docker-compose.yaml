@@ -1,17 +1,16 @@
 version: "3"
 services:
   hub:
-    image: selenium/hub:3.14
+    image: selenium/hub:3.141.59
   chrome:
-    image: selenium/node-chrome:3.14 
-    ports:   - "4444:4444"    
+    image: selenium/node-chrome:3.141.59 
     # if run localy
     depends_on:
       - hub
     environment:
       - HUB_HOST=hub
   firefox:
-    image: selenium/node-firefox:3.14
+    image: selenium/node-firefox:3.141.59
     shm_size: '1gb'   
    # if run localy
     depends_on:
