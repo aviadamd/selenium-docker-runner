@@ -2,14 +2,14 @@ pipeline {
 	agent any
 	stages {
 		stage("Wait For Tests") {
-            steps { 
-                timeout(time: 3, unit: 'SECONDS') {
-                    retry(2) {
-                       echo "wait for test"
-                    }   
-                }
-            }    
-        }
+		    steps { 
+			timeout(time: 3, unit: 'SECONDS') {
+			    retry(2) {
+			       echo "wait for test"
+			    }   
+			}
+		    }    
+		}
 		stage("Start Grid") {
 			steps {
 				bat "docker-compose up -d hub chrome firefox"
@@ -20,6 +20,7 @@ pipeline {
 				bat "docker-compose up search-module book-flight-module"
 			}
 		}
+	
 	}
 	post {
 		always {
