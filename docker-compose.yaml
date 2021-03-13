@@ -21,7 +21,6 @@ services:
       - HUB_HOST=hub
   search-module:
     image: 5311072/selenium-docker
-    container_name: search-module
     depends_on:
       - chrome
       - firefox
@@ -30,10 +29,9 @@ services:
       - BROWSER=firefox
       - MODULE=search-module.xml
     volumes:
-      - ./output/search-result:/usr/share/automation     
+      - ./output/search-result:/usr/share/automation/output     
   book-flight-module:
     image: 5311072/selenium-docker
-    container_name: book-flight-module
     depends_on:
       - chrome
       - firefox
@@ -42,4 +40,4 @@ services:
       - BROWSER=chrome
       - MODULE=book-flight-module.xml
     volumes:
-      - ./output/book-result:/usr/share/automation   
+      - ./output/book-result:/usr/share/automation/output   
