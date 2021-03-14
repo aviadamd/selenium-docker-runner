@@ -46,7 +46,7 @@ pipeline {
 	}
 	post {
 	   always {
-	   	 archive "output/**/*"
+	   	 archive "/**/*"
 	   	 bat "docker-compose down"
 	   }
     }
