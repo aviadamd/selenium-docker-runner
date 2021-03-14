@@ -46,7 +46,7 @@ pipeline {
 	}
 	post {
 	   always {
-	   	 archive "/**/*"
+	   	 archive "**/testng-results.xml"
 	   	 bat "docker-compose down"
 	   }
     }
