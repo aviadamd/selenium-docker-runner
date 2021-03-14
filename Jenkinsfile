@@ -46,7 +46,7 @@ pipeline {
 	}
 	post {
 	   always {
-	   	 archiveArtifacts '**/output/**'
+	   	 archiveArtifacts '**'
 	   	 bat "docker-compose down"
 	   }
     }
