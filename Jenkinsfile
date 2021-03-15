@@ -46,7 +46,7 @@ pipeline {
 	}
 	post {
 	   always {
-	   	 archiveArtifacts "var/jenkins_home/opt/docker/jenkins/output"
+	   	 archiveArtifacts "**"
 	   	 bat "docker-compose down"
 	   }
     }
