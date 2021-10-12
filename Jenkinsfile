@@ -7,14 +7,14 @@ pipeline {
 			}
 		}
 		stage("Start Grid") {
-		    steps {
-		    	bat "docker-compose up -d hub chrome firefox"
-	        }
+		       steps {
+		         	bat "docker-compose up -d hub chrome firefox"
+	               }
 		}
 		stage("Run Tests") {
-		    steps {
-			    bat "docker-compose up book-flight-module"
-		    }
+		       steps {
+			       bat "docker-compose up book-flight-module"
+		      }
 		}
 	}
 	post {
